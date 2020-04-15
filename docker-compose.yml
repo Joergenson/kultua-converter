@@ -1,36 +1,36 @@
 version: "3.7"
 
 services:
-  creditoro_api:
-    container_name: creditoro_api
+  kalturavods_api:
+    container_name: kalturavods_api
     build:
       context: .
       dockerfile: docker/Dockerfile
     command: gunicorn --bind 0.0.0.0:5000 app:APP
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.creditoro.rule=Host(`api.creditoro.nymann.dev`)"
-      - "traefik.http.routers.creditoro.tls=true"
-      - "traefik.http.routers.creditoro.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.creditoro.entrypoints=https"
+      - "traefik.http.routers.kalturavods.rule=Host(`api.kalturavods.jorgenson.dev`)"
+      - "traefik.http.routers.kalturavods.tls=true"
+      - "traefik.http.routers.kalturavods.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.kalturavods.entrypoints=https"
       - "traefik.docker.network=web"
     depends_on:
-      - creditoro_db
+      - kalturavods_db
     ports:
       - 8000:5000
     environment:
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=kalturavods
     env_file:
       - docker/api.env
       - docker/db.env
     networks:
-      - creditoro_internal
+      - kalturavods_internal
       - web
-  creditoro_db:
+  kalturavods_db:
     image: postgres:12-alpine
-    container_name: creditoro_db
+    container_name: kalturavods_db
     environment:
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=kalturavods
     env_file:
       - docker/db.env
     labels:
@@ -38,11 +38,11 @@ services:
     volumes:
       - ./postgres/data:/var/lib/postgresql/data/
     networks:
-      - creditoro_internal
+      - kalturavods_internal
 
 
 networks:
-  creditoro_internal:
+  kalturavods_internal:
   web:
     external:
       name: web
