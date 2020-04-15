@@ -1,5 +1,14 @@
+# Pycache
 *.pyc
+
+# IDE settings
 .vscode/
+.idea/
+
+# Virtual environments
+.venv/
+venv/
+
+# Project 'binary' files.
 *.mp4
-.venv
 parts.txt
