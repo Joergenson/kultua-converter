@@ -1,9 +1,9 @@
-from src.playlist_grapper import get_uri
-from src.playlist_grapper import resolutions
-from src.playlist_parser import get_playlist_uris
-from src.playlist_parser import get_base_url
-from src.playlist_converter import fetch_all_urls
-from src.playlist_converter import generate_list_of_files
+from src.m3u8_playlist.playlist_grapper import get_uri
+from src.m3u8_playlist.playlist_grapper import resolutions
+from src.m3u8_playlist.playlist_parser import get_playlist_uris
+from src.m3u8_playlist.playlist_parser import get_base_url
+from src.m3u8_playlist.playlist_converter import fetch_all_urls
+from src.m3u8_playlist.playlist_converter import generate_list_of_files
 import subprocess
 import shutil
 
