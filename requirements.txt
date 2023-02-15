@@ -16,7 +16,7 @@ gunicorn
 
 # Flask related
 flask
-werkzeug==0.16.1 # used for ProxyFix
+werkzeug==2.2.3 # used for ProxyFix
 flask_restplus # used for RESTful API framework.
 
 # Error reporting
